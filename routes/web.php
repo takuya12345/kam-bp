@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameInformationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,4 @@ Route::get('/', function () {
     return view('kam_bp');
 });
 
-Route::get('/attendance', function() {
-    return view('attendance');
-});
+Route::get('/information', [GameInformationController::class, 'gameInformation'])->name('game_information');
