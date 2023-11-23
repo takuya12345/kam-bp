@@ -4,7 +4,7 @@ namespace App\Http\Requests\Attendance;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAttendanceRequest extends FormRequest
+class UpdateAttendanceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,24 +21,11 @@ class StoreAttendanceRequest extends FormRequest
      */
     public function rules()
     {
-
+        logger($_REQUEST);
         return [
             'name' => ['required', 'max:255'],
             'attendance' => 'required',
             'comment' => 'max:50',
-            'game_no' => 'int',
-        ];
-    }
-
-    /**
-     * エラーメッセージ
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'name.required' => '名前を入力してください',
-            'attendance.required' => '出欠内容を入力してください',
         ];
     }
 }

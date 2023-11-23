@@ -12,7 +12,7 @@
                 {!! nl2br(e($information['date'])) !!}
             </div>
             <div class="flex justify-center items-center border-2 border-blue-600 p-4">
-                <a href="{{ route('attendance') }}" class="underline">
+                <a href="{{ route('attendance.index', ['game_no' => $information['id']]) }}" class="underline">
                     {!! nl2br(e($information['place'])) !!}
                 </a>
             </div>
