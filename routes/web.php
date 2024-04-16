@@ -31,8 +31,13 @@ Route::delete('/attendance/delete/{player_no}', [AttendanceController::class, 'd
 // Route::get('/login', function() {
 //     return view('login');
 // })->name('login');
-Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
-Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+// Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
+// Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+
+Route::prefix('admin/users')->controller(UserController::class)->group(function(){
+    Route::get('/create', 'create')->name('admin.users.create');
+    Route::post('', 'store')->name('admin.users.store');
+});
 
 // 認証
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
@@ -45,3 +50,4 @@ Route::post('/admin/game/store', [GameController::class, 'store'])->name('admin.
 Route::get('/admin/game/edit/{game_no}', [GameController::class, 'edit'])->name('admin.game.edit');
 Route::post('/admin/game/update', [GameController::class, 'update'])->name('admin.game.update');
 Route::delete('/admin/game/delete/{game_no}', [GameController::class, 'delete'])->name('admin.game.delete');
+

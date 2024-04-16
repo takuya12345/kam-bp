@@ -2,7 +2,6 @@
 @section('title', 'ログイン')
 
 @section('content')
-@vite('resources/js/app.js')
     <form action="{{ route('admin.users.store') }}" method="POST" class="text-center">
         @csrf
         <div class="m-2">
@@ -31,4 +30,5 @@
         </div>
         <button type="submit" class="bg-gray-800 text-white border rounded p-1">登録</button>
     </form>
+    @vite('resources/js/app.js')
 @endsection
