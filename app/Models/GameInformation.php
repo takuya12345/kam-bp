@@ -10,6 +10,8 @@ class GameInformation extends Model
     use HasFactory;
 
     protected $guarded = [
-        'id'
+        'id',
+        'created_at',
+        'updated_at'
     ];
 }

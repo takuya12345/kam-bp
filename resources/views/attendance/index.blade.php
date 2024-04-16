@@ -9,7 +9,7 @@
             <div class="mt-2">
                 <label>
                     <p class="text-center">名前</p>
-                    <input type="text" class="border border-gray-800 rounded" name="name">
+                    <input type="text" class="border border-gray-800 rounded" name="name" value="{{ old('name') }}">
                     {{-- <input type="text" class="border border-gray-800 rounded" name="name" v-model="newName" value="{{ newName }}"> --}}
                 </label>
             </div>
@@ -54,16 +54,16 @@
                     <a href="{{ route('attendance.edit', ['player_no' => $index->id]) }}">編集</a>
                 </button>
             </div>
-            <form action="{{ route('attendance.delete', ['player_no' => $index->id])}}" method="POST"
-                class="flex justify-center items-center border-2 border-blue-600 p-4">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="bg-red-500 text-white border rounded p-1">
-                    <a href="">削除</a>
-                </button>
-                <input type="hidden" name="game_no" value="$index->game_no">
-            </form>
+            <div class="flex justify-center items-center border-2 border-blue-600 p-4">
+                <form action="{{ route('attendance.delete', ['player_no' => $index->id])}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="game_no" value="{{ $index->game_no }}">
+                    <button type="submit" class="bg-red-500 text-white border rounded p-1">
+                        削除
+                    </button>
+                </form>
+            </div>
         @endforeach
     </div>
-    <div id="app"></div>
 @endsection

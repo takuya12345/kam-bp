@@ -25,7 +25,7 @@ class AttendanceController extends Controller
         $attendance = new Attendance($request->validated());
         $attendance->save();
 
-        return to_route('attendance.index', ['game_no' => $attendance['game_no']]);
+        return to_route('attendance.index', ['game_no' => $attendance['game_no']])->with('success', '出欠登録しました');
     }
 
     // 編集
@@ -54,10 +54,9 @@ class AttendanceController extends Controller
     public function delete(Request $request, int $player_no)
     {
         $player_info = $request->all();
-        logger($player_info);
         $attendance = Attendance::findOrFail($player_no);
         $attendance->delete();
 
-        return to_route('attendance.index', ['game_no' => $game_no]);
+        return to_route('attendance.index', ['game_no' => $player_info["game_no"]]);
     }
 }

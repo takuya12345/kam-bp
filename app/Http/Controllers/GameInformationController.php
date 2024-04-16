@@ -9,8 +9,7 @@ class GameInformationController extends Controller
     public function gameInformation(): object
     {
         // 試合情報の取得
-        $game_information = GameInformation::get();
-
+        $game_information = GameInformation::orderby('date', 'asc')->get();
         return view('/game_information', ['game_information' => $game_information]);
     }
 }

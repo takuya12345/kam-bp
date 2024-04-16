@@ -26,7 +26,8 @@ class GameInformationSeeder extends Seeder
                 return [
                     'date' => 'ダミー'. $no,
                     'place' => '会場'. $no,
-                    'game_information' => "練習試合\nvs パッシオーネ\nvs ヒロヴェイ",
+                    'match_format' => '練習試合',
+                    'game_information' => "vs パッシオーネ\nvs ヒロヴェイ",
                     'organizer' => 'カム',
                     'created_at' => $created_at,
                     'updated_at' => $updated_at

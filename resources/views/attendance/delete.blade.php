@@ -1,8 +1,8 @@
 @extends('layouts.default')
-@section('title', '出欠登録削除')
+@section('title', '出欠削除')
 
 @section('content')
-    <form action="{{ route('attendance.update') }}" method="POST" class="text-center mt-8">
+    <form action="{{ route('attendance.delete') }}" method="POST" class="text-center mt-8">
         @csrf
         <input type="hidden" name="player_id" value="{{ $attendance_player->id }}">
         <input type="hidden" name="game_no" value="{{ $attendance_player->game_no }}">
@@ -37,5 +37,4 @@
     <div class="text-center">
         <a href="{{ route('attendance.index', ['game_no' => $attendance_player->game_no]) }}" class="text-center  p-1 mt-2">戻る</a>
     </div>
-    <div id="app"></div>
 @endsection

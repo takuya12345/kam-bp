@@ -1,13 +1,15 @@
+<template>
+    <h2>Ola, {{ name }}</h2>
+    <br>
+    <input type="text" v-model="name">
+</template>
+
 <script>
-    export default ({
-        name: 'name',
+    export default {
         data() {
             return {
-                newName: 'test'
+                name: "test",
             }
-        },
-        methods: {
-
         }
-    })
+    }
 </script>

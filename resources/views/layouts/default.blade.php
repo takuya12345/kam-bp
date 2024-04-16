@@ -16,5 +16,78 @@
             </a>
         </div>
     </header>
+    <main class="py-4 px-6">
+        @if ($errors->has('name'))
+            <div class="mb-4 text-left">
+                <div
+                    class="pl-6 pr-16 py-4 bg-white border-l-4 border-red-500 shadow-md rounded-r-lg inline-block ml-auto">
+                    <div class="flex items-center">
+                        <p class="error">{{ $errors->first('name') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if ($errors->has('email'))
+            <div class="mb-4 text-left">
+                <div
+                    class="pl-6 pr-16 py-4 bg-white border-l-4 border-red-500 shadow-md rounded-r-lg inline-block ml-auto">
+                    <div class="flex items-center">
+                        <p class="error">{{ $errors->first('email') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if ($errors->has('password'))
+            <div class="mb-4 text-left">
+                <div
+                    class="pl-6 pr-16 py-4 bg-white border-l-4 border-red-500 shadow-md rounded-r-lg inline-block ml-auto">
+                    <div class="flex items-center">
+                        <p class="error">{{ $errors->first('password') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if ($errors->has('password_confirm'))
+            <div class="mb-4 text-left">
+                <div
+                    class="pl-6 pr-16 py-4 bg-white border-l-4 border-red-500 shadow-md rounded-r-lg inline-block ml-auto">
+                    <div class="flex items-center">
+                        <p class="error">{{ $errors->first('password_confirm') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if ($errors->has('attendance'))
+            <div class="mb-4 text-left">
+                <div
+                    class="pl-6 pr-16 py-4 bg-white border-l-4 border-red-500 shadow-md rounded-r-lg inline-block ml-auto">
+                    <div class="flex items-center">
+                        <p class="error">{{ $errors->first('attendance') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if ($errors->has('date'))
+            <div class="mb-4 text-left">
+                <div
+                    class="pl-6 pr-16 py-4 bg-white border-l-4 border-red-500 shadow-md rounded-r-lg inline-block ml-auto">
+                    <div class="flex items-center">
+                        <p class="error">{{ $errors->first('date') }}</p>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if(session()->has('success'))
+            <!-- ▼▼▼▼登録完了メッセージ(全ページで共通)▼▼▼▼　-->
+                <div class="mb-4 text-left">
+                    <div
+                        class="pl-6 pr-16 py-4 bg-white border-l-4 border-blue-500 shadow-md rounded-r-lg inline-block ml-auto">
+                        <div class="flex items-center">
+                            <p class="text-blue-800 font-medium">{{ session('success') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ▲▲▲▲登録完了メッセージ▲▲▲▲　-->
+        @endif
     @yield('content')
 </body>

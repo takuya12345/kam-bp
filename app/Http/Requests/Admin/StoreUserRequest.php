@@ -22,10 +22,10 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'|'string'|'max:255',
-            'email' => 'required'|'string'|'email'|'max:255'|'unique:users',
-            'password' => 'required'|'string'|'min:8'|'confirmed',
-            'password_confirm' => 'required'|'string'|'min:8'|'confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required|string|min:8|same:password',
         ];
     }
 
@@ -39,7 +39,7 @@ class StoreUserRequest extends FormRequest
             'name.required' => '名前を入力してください',
             'email.required' => 'Eメールアドレスを入力してください',
             'password.required' => 'パスワードを入力してください',
-            'password_confirm.required' => '確認用のパスワードを入力してください',
+            'password_confirmation.required' => '確認用のパスワードを入力してください',
         ];
     }
 }
